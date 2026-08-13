@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ahrefs Domain Rating</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="popup-body">
+    <main class="popup-shell" aria-live="polite">
+      <header class="compact-header">
+        <div>
+          <p class="eyebrow">Truly Digital</p>
+          <h1>Domain rating</h1>
+        </div>
+        <button class="icon-button" id="settingsButton" type="button" title="Open settings" aria-label="Open settings">
+          <span aria-hidden="true">&#9881;</span>
+        </button>
+      </header>
+
+      <section id="statusPanel" class="status-panel">
+        <div class="loader" aria-hidden="true"></div>
+        <div>
+          <p id="statusTitle" class="status-title">Checking current domain</p>
+          <p id="statusMessage" class="muted">Waiting for Ahrefs to respond...</p>
+        </div>
+      </section>
+
+      <section id="resultPanel" class="result-panel hidden">
+        <p id="domainName" class="domain-name"></p>
+        <div class="score-row">
+          <span id="domainRating" class="score">--</span>
+          <span class="score-label">DR</span>
+        </div>
+        <div class="metrics-grid">
+          <div>
+            <span id="backlinksCount" class="metric-value">--</span>
+            <span class="metric-label">Backlinks</span>
+          </div>
+          <div>
+            <span id="refDomainsCount" class="metric-value">--</span>
+            <span class="metric-label">Ref. domains</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="emptyPanel" class="empty-panel hidden">
+        <p id="emptyTitle" class="status-title">API key needed</p>
+        <p id="emptyMessage" class="muted">Add your Ahrefs API key in settings to check domain ratings.</p>
+        <button id="configureButton" class="primary-button" type="button">Open settings</button>
+      </section>
+
+      <footer class="footer">
+        <a id="footerLink" href="https://trulydigital.net/?utm_source=chrome_extension&utm_medium=popup&utm_campaign=ahrefs_domain_rating" target="_blank" rel="noreferrer">
+          Made by Truly Digital Limited
+        </a>
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
