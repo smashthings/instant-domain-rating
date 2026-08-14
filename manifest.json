@@ -1,11 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "Truly Digital Ahrefs Domain Rating",
+  "name": "Ahrefs Domain Rating by Truly Digital",
   "description": "Check the Ahrefs domain rating for the current site on demand.",
   "version": "1.0.0",
   "action": {
     "default_title": "Check Domain Rating",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
   },
   "options_page": "options.html",
   "permissions": [
@@ -14,5 +18,11 @@
   ],
   "host_permissions": [
     "https://api.ahrefs.com/*"
-  ]
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }
