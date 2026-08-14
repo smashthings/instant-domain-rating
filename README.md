@@ -6,7 +6,7 @@ A small Chrome extension that checks the Ahrefs domain rating for the active web
 
 - Pulls the hostname from the current tab.
 - Calls `https://api.ahrefs.com/v3/public/domain-rating-free`.
-- Also attempts `https://api.ahrefs.com/v3/site-explorer/backlinks-stats` for backlink and referring-domain totals.
+- Shows the returned Ahrefs domain rating.
 - Stores the Ahrefs API key in Chrome sync storage.
 - Links settings and footer traffic to Truly Digital with UTM parameters.
 

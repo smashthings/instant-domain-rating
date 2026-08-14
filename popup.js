@@ -48,8 +48,6 @@
       this.emptyMessage = document.getElementById("emptyMessage");
       this.domainName = document.getElementById("domainName");
       this.domainRating = document.getElementById("domainRating");
-      this.backlinksCount = document.getElementById("backlinksCount");
-      this.refDomainsCount = document.getElementById("refDomainsCount");
       this.settingsButton = document.getElementById("settingsButton");
       this.configureButton = document.getElementById("configureButton");
     }
@@ -72,7 +70,7 @@
           return;
         }
 
-        const result = await this.fetchAhrefsMetrics(apiKey, domain);
+        const result = await this.fetchAhrefsDomainRating(apiKey, domain);
         this.showResult(domain, result);
       } catch (error) {
         Log(error.message, LogLevel.ERROR);
@@ -100,37 +98,16 @@
       return url.hostname.replace(/^www\./i, "");
     }
 
-    async fetchAhrefsMetrics(apiKey, domain) {
+    async fetchAhrefsDomainRating(apiKey, domain) {
       const ratingUrl = new URL("https://api.ahrefs.com/v3/public/domain-rating-free");
       ratingUrl.searchParams.set("target", domain);
 
-      const statsUrl = new URL("https://api.ahrefs.com/v3/site-explorer/backlinks-stats");
-      statsUrl.searchParams.set("target", domain);
-      statsUrl.searchParams.set("mode", "subdomains");
-      statsUrl.searchParams.set("output", "json");
-
-      const [ratingResponse, statsResponse] = await Promise.all([
-        this.fetchJson(ratingUrl, apiKey),
-        this.fetchOptionalJson(statsUrl, apiKey)
-      ]);
-
+      const ratingResponse = await this.fetchJson(ratingUrl, apiKey);
       const rating = ratingResponse.domain_rating || {};
-      const metrics = statsResponse.metrics || {};
 
       return {
-        domainRating: rating.domain_rating,
-        backlinks: metrics.live ?? metrics.all_time,
-        refDomains: metrics.live_refdomains ?? metrics.all_time_refdomains
+        domainRating: rating.domain_rating
       };
-    }
-
-    async fetchOptionalJson(url, apiKey) {
-      try {
-        return await this.fetchJson(url, apiKey);
-      } catch (error) {
-        Log(`Optional Ahrefs metrics unavailable: ${error.message}`, LogLevel.WARN);
-        return {};
-      }
     }
 
     async fetchJson(url, apiKey) {
@@ -170,8 +147,6 @@
     showResult(domain, result) {
       this.domainName.textContent = domain;
       this.domainRating.textContent = this.formatMetric(result.domainRating);
-      this.backlinksCount.textContent = this.formatMetric(result.backlinks);
-      this.refDomainsCount.textContent = this.formatMetric(result.refDomains);
       this.statusPanel.classList.add("hidden");
       this.emptyPanel.classList.add("hidden");
       this.resultPanel.classList.remove("hidden");
