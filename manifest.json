@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Truly Digital Ahrefs Domain Rating",
+  "description": "Check the Ahrefs domain rating for the current site on demand.",
+  "version": "1.0.0",
+  "action": {
+    "default_title": "Check Domain Rating",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.ahrefs.com/*"
+  ]
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Truly Digital Ahrefs Settings</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="options-body">
+    <main class="settings-shell">
+      <section class="settings-card">
+        <p class="eyebrow">Truly Digital</p>
+        <h1>Ahrefs API settings</h1>
+        <p class="settings-copy">
+          Save your Ahrefs API key once. The extension will use it only when you open the popup on a website.
+        </p>
+
+        <form id="settingsForm" class="settings-form">
+          <label for="apiKeyInput">Ahrefs API key</label>
+          <input id="apiKeyInput" name="apiKey" type="password" autocomplete="off" placeholder="Paste your API key">
+          <div class="form-actions">
+            <button class="primary-button" type="submit">Save key</button>
+            <button class="secondary-button" id="clearButton" type="button">Clear</button>
+          </div>
+          <p id="saveMessage" class="save-message" role="status"></p>
+        </form>
+
+        <a class="docs-link" href="https://trulydigital.net/resources/ahrefs-api-key-instructions/?utm_source=chrome_extension&utm_medium=settings&utm_campaign=ahrefs_domain_rating" target="_blank" rel="noreferrer">
+          How to request an Ahrefs API key
+        </a>
+      </section>
+
+      <footer class="footer settings-footer">
+        <a href="https://trulydigital.net/?utm_source=chrome_extension&utm_medium=settings&utm_campaign=ahrefs_domain_rating" target="_blank" rel="noreferrer">
+          Made by Truly Digital Limited
+        </a>
+      </footer>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>
