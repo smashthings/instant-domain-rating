@@ -5,7 +5,6 @@
   --td-ink: #0f172a;
   --td-muted: #64748b;
   --td-border: #e2e8f0;
-  --td-soft: #f8fafc;
   --td-white: #ffffff;
   --td-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
   color-scheme: light;
@@ -33,13 +32,13 @@ a {
 
 .popup-body {
   width: 340px;
-  min-height: 320px;
+  min-height: 280px;
   overflow: hidden;
 }
 
 .popup-shell {
   display: flex;
-  min-height: 320px;
+  min-height: 280px;
   flex-direction: column;
   gap: 14px;
   padding: 18px;
@@ -152,7 +151,6 @@ h1 {
   display: flex;
   align-items: flex-end;
   gap: 8px;
-  margin-bottom: 18px;
 }
 
 .score {
@@ -171,39 +169,6 @@ h1 {
   color: var(--td-ink);
   font-size: 13px;
   font-weight: 900;
-}
-
-.metrics-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.metrics-grid > div {
-  min-width: 0;
-  border-radius: 8px;
-  background: var(--td-soft);
-  padding: 10px;
-}
-
-.metric-value,
-.metric-label {
-  display: block;
-}
-
-.metric-value {
-  overflow: hidden;
-  font-size: 18px;
-  font-weight: 900;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.metric-label {
-  margin-top: 2px;
-  color: var(--td-muted);
-  font-size: 11px;
-  font-weight: 700;
 }
 
 .primary-button,
